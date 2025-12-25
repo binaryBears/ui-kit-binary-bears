@@ -1,4 +1,4 @@
-import { useId } from "react"
+import { useId } from 'react'
 
 export const useGenerateId = (name?: string, id?: string) => {
   const generatedId = useId()
