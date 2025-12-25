@@ -1,4 +1,4 @@
-@use "../../styles/base/index" as *;
+@use "../../styles/index.scss" as *;
 
 .large {
   @include typography($font-size-xxl, $line-height-m, $font-weight-semibold);
