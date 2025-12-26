@@ -13,6 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "@fontsource/roboto": "^5.2.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -27,6 +28,7 @@
     "@storybook/addon-docs": "^10.1.10",
     "@storybook/addon-onboarding": "^10.1.10",
     "@storybook/addon-vitest": "^10.1.10",
+    "@storybook/react": "^10.1.10",
     "@storybook/react-vite": "^10.1.10",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
