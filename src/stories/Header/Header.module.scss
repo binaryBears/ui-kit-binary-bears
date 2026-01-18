@@ -4,7 +4,7 @@
   width: 100%;
   min-width: 700px;
   height: 60px;
-  padding: 0 60px;
+  padding: 0 10px 0 60px;
   align-items: center;
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
@@ -20,9 +20,10 @@
 
 .unauthorized_notifications {
   display: flex;
-  justify-content: flex-end;
-  column-gap: 36px;
+  justify-content: flex-start;
+  column-gap: 20px;
   align-items: center;
+  margin-left: auto;
 }
 
 .button {

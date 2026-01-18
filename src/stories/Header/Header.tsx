@@ -5,6 +5,16 @@ import s from './Header.module.scss'
 import BellOutline from '../assets/icons/new-components/BellOutline'
 import { LanguageSelector } from '../LanguageSelector/LanguageSelector'
 import { FlagRussiaIcon, FlagUnitedKingdomIcon } from '../assets/icons'
+import { Button } from '../Button'
+
+const HeaderButton = ({ children, variant = 'primary' }: { 
+  children: ReactNode, 
+  variant?: 'primary' | 'textButton'
+}) => (
+  <Button variant={variant} state="default">
+    {children}
+  </Button>
+)
 
 type HeaderProps = {
   isLoginIn: boolean
@@ -33,34 +43,6 @@ export const Header = ({ isLoginIn }: HeaderProps) => {
       </span>
     </div>
   )
-
-  const Button = ({ children, variant = 'primary', style = {} }: { 
-    children: ReactNode, 
-    variant?: 'primary' | 'link',
-    style?: React.CSSProperties 
-  }) => (
-    <button 
-      style={{
-        fontFamily: 'Inter',
-        fontWeight: 600,
-        fontSize: '16px',
-        lineHeight: '24px',
-        letterSpacing: '0px',
-        textAlign: 'center',
-        padding: '8px 16px',
-        border: variant === 'primary' ? '1px solid #007bff' : 'none',
-        backgroundColor: variant === 'primary' ? '#007bff' : 'transparent',
-        color: variant === 'primary' ? 'white' : '#007bff',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        ...style
-      }}
-    >
-      {children}
-    </button>
-  )
-
-  
 
   const languageOptions = [
     { 
@@ -101,12 +83,8 @@ export const Header = ({ isLoginIn }: HeaderProps) => {
             />
             
             <div className={s.button}>
-              <Button variant={'link'}>
-                Log in
-              </Button>
-              <Button variant={'primary'}>
-                Sign up
-              </Button>
+              <HeaderButton variant="textButton">Log in</HeaderButton>
+              <HeaderButton variant="primary">Sign up</HeaderButton>
             </div>
             
 
