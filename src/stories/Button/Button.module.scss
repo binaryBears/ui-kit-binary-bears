@@ -1,0 +1,210 @@
+.button {
+  align-items: center;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  height: 36px;
+  justify-content: center;
+  padding: 6px 24px;
+  width: 182px;
+  gap: 10px;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+/* Ensure font consistency across all states */
+.primary,
+.secondary,
+.outline,
+.textButton,
+.state-hover.primary,
+.state-active.primary,
+.state-focus.primary,
+.state-disabled.primary,
+.state-hover.secondary,
+.state-active.secondary,
+.state-focus.secondary,
+.state-disabled.secondary,
+.state-hover.outline,
+.state-active.outline,
+.state-focus.outline,
+.state-disabled.outline,
+.state-hover.textButton,
+.state-active.textButton,
+.state-focus.textButton,
+.state-disabled.textButton {
+  font-weight: 600;
+}
+
+.state-focus {
+  outline: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.textButton {
+  width: 100px;
+  padding: 6px 24px;
+}
+
+.primary {
+ 
+  background: rgba(57, 125, 246, 1);
+  color: #FFFFFF;
+}
+
+.state-hover.primary {
+  /* Property 1="Primary Hover" - no border */
+  background: rgba(115, 165, 255, 1);
+  color: #FFFFFF;
+}
+
+.state-active.primary {
+  /* Property 1="Primary Active" */
+  background: rgba(47, 104, 204, 1);
+  color: #FFFFFF;
+}
+
+.state-focus.primary {
+  /* Property 1="Primary Focus" */
+  background: rgba(57, 125, 246, 1);
+  border: 2px solid rgba(47, 104, 204, 1);
+  color: #FFFFFF;
+}
+
+.state-disabled.primary {
+  /* Property 1="Primary Disabled" */
+  background: rgba(35, 78, 153, 1);
+  color: rgba(141, 144, 148, 1);
+}
+
+/* Secondary variant */
+.secondary {
+  /* Property 1="Secondary" - Default state */
+  background: rgba(51, 51, 51, 1);
+  color: #FFFFFF;
+}
+
+.state-hover.secondary {
+  /* Property 1="Secondary Hover" - dark gray background, no border */
+  background: rgba(76, 76, 76, 1);
+  color: #FFFFFF;
+}
+
+.state-focus.secondary {
+  /* Property 1="Secondary Focus" - blue border */
+  background: rgba(51, 51, 51, 1);
+  border: 1px solid rgba(76, 141, 255, 1);
+  color: #FFFFFF;
+}
+
+.state-active.secondary {
+  /* Property 1="Secondary Active" - darker background */
+  background: rgba(33, 33, 33, 1);
+  color: #FFFFFF;
+}
+
+.state-disabled.secondary {
+  /* Property 1="Secondary Disabled" - dark background */
+  background: rgba(23, 23, 23, 1);
+  color: rgba(141, 144, 148, 1);
+}
+
+/* Outline variant */
+.outline {
+  /* Property 1="Outline" - Default state */
+  background: transparent;
+  border: 1px solid rgba(57, 125, 246, 1);
+  color: rgba(57, 125, 246, 1);
+}
+
+.state-hover.outline {
+  /* Property 1="Outline Hover" - light blue border and text */
+  border: 1px solid rgba(115, 165, 255, 1);
+  color: rgba(115, 165, 255, 1);
+}
+
+.state-active.outline {
+  /* Property 1="Outline Active" - light blue border and text */
+  border: 1px solid rgba(115, 165, 255, 1);
+  color: rgba(115, 165, 255, 1);
+}
+
+.state-focus.outline {
+  /* Property 1="Outline Focus" - blue 2px border with padding compensation */
+  background: transparent;
+  border: 2px solid rgba(47, 104, 204, 1);
+  color: rgba(47, 104, 204, 1);
+  padding: 4px 22px;
+}
+
+.state-disabled.outline {
+  /* Property 1="Outline Disabled" - 1px border */
+  border: 1px solid rgba(35, 78, 153, 1);
+  color: rgba(35, 78, 153, 1);
+  background: transparent;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+/* Text Button variant */
+.textButton {
+  /* Property 1="Text Button" - Default state */
+  background: transparent;
+  border: none;
+  color: rgba(57, 125, 246, 1);
+  width: 100px;
+  height: 36px;
+  padding: 6px 24px;
+  gap: 10px;
+}
+
+.state-hover.textButton {
+  /* Property 1="Text Button Hover" - light blue text, no border */
+  color: rgba(115, 165, 255, 1);
+  border: none;
+  padding: 6px 24px;
+}
+
+.state-active.textButton {
+  /* Property 1="Text Button Active" - light blue text, no border */
+  color: rgba(115, 165, 255, 1);
+  border: none;
+  padding: 6px 24px;
+}
+
+.state-focus.textButton {
+  /* Property 1="Text Button Focus" - blue 2px border with padding compensation */
+  border: 2px solid rgba(47, 104, 204, 1);
+  color: rgba(47, 104, 204, 1);
+  padding: 4px 22px;
+}
+
+.state-disabled.textButton {
+  /* Property 1="Text Button Disabled" - no border */
+  color: rgba(35, 78, 153, 1);
+  border: none;
+  background: transparent;
+  padding: 6px 24px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
