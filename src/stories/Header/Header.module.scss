@@ -1,0 +1,40 @@
+.container {
+  background: var(--background);
+  display: flex;
+  width: 100%;
+  min-width: 700px;
+  height: 60px;
+  padding: 0 60px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.authorized_notifications {
+  display: flex;
+  align-items: center;
+  column-gap: 45px;
+}
+
+.unauthorized_notifications {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 36px;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  gap: 24px;
+
+  button {
+    font-size: var(--font-size-14);
+  }
+}
+
+.themeSwitch {
+  display: flex;
+  align-items: center;
+}
