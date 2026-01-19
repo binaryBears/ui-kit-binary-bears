@@ -11,7 +11,7 @@ import {
     type ReactNode
 } from "react";
 
-export interface Options {
+export type Options = {
     icon?: ReactNode
     name?: ReactNode
     value: string
