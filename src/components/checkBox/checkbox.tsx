@@ -1,7 +1,8 @@
 import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from 'react'
-import s from './checkbox.module.scss'
 import { useGenerateId } from '../../hooks/useGenerateId'
 import clsx from 'clsx'
+
+import s from './checkbox.module.scss'
 
 export type CheckboxProps = {
   labelText?: ReactNode

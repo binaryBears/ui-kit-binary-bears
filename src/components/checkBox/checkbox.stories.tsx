@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Typography } from '../typography'
 import { Checkbox } from './checkbox'
 
