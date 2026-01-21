@@ -7,45 +7,45 @@ import s from './popover.module.scss'
 const Popover = PopoverPrimitive.Root
 
 const PopoverTrigger = forwardRef<
-    HTMLButtonElement,
-    ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
+  HTMLButtonElement,
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
 >(({ asChild = true, ...props }, ref) => (
-    <PopoverPrimitive.Trigger asChild={asChild} ref={ref} {...props} />
+  <PopoverPrimitive.Trigger asChild={asChild} ref={ref} {...props} />
 ))
 
 PopoverTrigger.displayName = PopoverPrimitive.Trigger.displayName
 
 const PopoverAnchor = forwardRef<
-    HTMLDivElement,
-    ComponentPropsWithoutRef<typeof PopoverPrimitive.Anchor>
+  HTMLDivElement,
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Anchor>
 >(({ asChild = true, ...props }, ref) => (
-    <PopoverPrimitive.Anchor asChild={asChild} ref={ref} {...props} />
+  <PopoverPrimitive.Anchor asChild={asChild} ref={ref} {...props} />
 ))
 
 PopoverAnchor.displayName = PopoverPrimitive.Anchor.displayName
 
 const PopoverClose = forwardRef<
-    HTMLButtonElement,
-    ComponentPropsWithoutRef<typeof PopoverPrimitive.Close>
+  HTMLButtonElement,
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Close>
 >(({ asChild = true, ...props }, ref) => (
-    <PopoverPrimitive.Close asChild={asChild} ref={ref} {...props} />
+  <PopoverPrimitive.Close asChild={asChild} ref={ref} {...props} />
 ))
 
 PopoverClose.displayName = PopoverPrimitive.Close.displayName
 
 const PopoverContent = forwardRef<
-    ComponentRef<typeof PopoverPrimitive.Content>,
-    ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+  ComponentRef<typeof PopoverPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ align = 'center', className, sideOffset = 1, ...props }, ref) => (
-    <PopoverPrimitive.Portal>
-        <PopoverPrimitive.Content
-            align={align}
-            className={`${s.popoverContent} ${className}`}
-            ref={ref}
-            sideOffset={sideOffset}
-            {...props}
-        />
-    </PopoverPrimitive.Portal>
+  <PopoverPrimitive.Portal>
+    <PopoverPrimitive.Content
+      align={align}
+      className={`${s.popoverContent} ${className}`}
+      ref={ref}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  </PopoverPrimitive.Portal>
 ))
 
 PopoverContent.displayName = PopoverPrimitive.Content.displayName
