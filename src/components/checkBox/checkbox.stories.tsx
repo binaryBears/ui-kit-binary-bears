@@ -12,6 +12,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+
 export const DisabledCheckboxWithoutText: Story = {
   args: {
     disabled: true,
