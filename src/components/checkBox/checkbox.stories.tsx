@@ -12,7 +12,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-
 export const DisabledCheckboxWithoutText: Story = {
   args: {
     disabled: true,
@@ -43,7 +42,7 @@ export const MultipleCheckboxes: Story = {
   render: () => (
     <div
       style={{
-        alignItems: 'flex-start',
+        alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
         gap: '15px',
@@ -63,27 +62,10 @@ export const MultipleCheckboxes: Story = {
         id={'checkbox2'}
         labelText={
           <Typography as={'span'} variant={'regular_text_14'}>
-            heckbox type 2
+            Сheckbox type 2
           </Typography>
         }
         name={'checkbox2'}
-      />
-
-      <Checkbox
-        id={'checkbox6'}
-        labelText={
-          <Typography as={'span'} variant={'regular_text_14'}>
-            I agree to the{' '}
-            <Typography as={'a'} target={'_blank'} variant={'regular_link'}>
-              Terms of Service
-            </Typography>{' '}
-            and{' '}
-            <Typography as={'a'} target={'_blank'} variant={'regular_link'}>
-              Privacy Policy
-            </Typography>
-          </Typography>
-        }
-        name={'checkbox6'}
       />
     </div>
   ),
