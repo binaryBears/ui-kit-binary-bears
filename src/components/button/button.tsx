@@ -10,8 +10,8 @@ type ButtonOwnProps = {
   className?: string
   fullWidth?: boolean
   disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'outline' | 'textButton'
-  // size?: 'sm' | 'md' // size prop temporarily disabled
+  variant?: 'primary' | 'secondary' | 'outline' | 'textButton' | 'asLink'
+  // size?: 'sm' | 'md' 
 }
 
 export type ButtonProps = ButtonOwnProps &
@@ -22,8 +22,8 @@ export const Button = ({
   className,
   fullWidth,
   variant = 'primary',
-  // size = 'md', // default size temporarily disabled
-  disabled,
+  // size = 'md', 
+  //disabled,
   ...rest
 }: ButtonProps) => {
   const Component = asChild ? Slot : 'button'
@@ -31,20 +31,20 @@ export const Button = ({
   const classes = clsx(
     s.button,
     s[variant],
-    // s[size], // size styling temporarily disabled
+    // s[size], 
     fullWidth && s.fullWidth,
     className
   )
 
-  const tabIndex = disabled && asChild ? -1 : rest.tabIndex
+  // const tabIndex = disabled && asChild ? -1 : rest.tabIndex
 
   return (
     <Component
       className={classes}
       {...rest}
-      disabled={!asChild ? disabled : undefined} 
-      aria-disabled={disabled} 
-      tabIndex={tabIndex}
+      // disabled={!asChild ? disabled : undefined}
+      // aria-disabled={disabled}
+      // tabIndex={tabIndex}
     />
   )
 }

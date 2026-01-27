@@ -86,3 +86,18 @@ export const AsLink: Story = {
     </Button>
   ),
 }
+
+export const LinkVariant: Story = {
+  args: {
+    variant: 'asLink',
+    children: 'Styled link',
+  },
+}
+
+export const LinkVariantDisabled: Story = {
+  args: {
+    variant: 'asLink',
+    disabled: true,
+    children: 'Disabled link',
+  },
+}
