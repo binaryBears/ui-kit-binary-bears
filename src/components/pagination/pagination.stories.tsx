@@ -1,18 +1,18 @@
 import { useState } from 'react'
-import {PaginationComponent} from "./PaginationComponent.tsx";
+import {Pagination} from "./Pagination.tsx";
 import type {Meta} from "@storybook/react-vite";
 
 export default {
     title: 'Components/Pagination',
-    component: PaginationComponent,
-} as Meta<typeof PaginationComponent>
+    component: Pagination,
+} as Meta<typeof Pagination>
 
 export const Default = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage, setItemsPerPage] = useState(10)
 
     return (
-        <PaginationComponent
+        <Pagination
             totalItems={100}
             itemsPerPage={itemsPerPage}
             currentPage={currentPage}
@@ -35,7 +35,7 @@ export const DefaultWithTwoPages = () => {
     const [itemsPerPage, setItemsPerPage] = useState(1)
 
     return (
-        <PaginationComponent
+        <Pagination
             totalItems={2}
             itemsPerPage={itemsPerPage}
             currentPage={currentPage}
