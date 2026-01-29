@@ -1,56 +1,28 @@
-'use client'
-
 import styles from './textArea.module.scss'
-import {type ChangeEvent, useState} from "react";
+import {type ChangeEvent, type ComponentPropsWithoutRef, forwardRef} from "react";
 import clsx from "clsx";
 
 export type TextAreaProps = {
     label: string
-    name: string
-    initialValue?: string
-    maxLength?: number
     error?: string
-    required?: boolean
-    placeholder?: string
-    disabled?: boolean
-    rows?: number
-    className?: string
     width?: string
+    value: string
     onChange?: (value: string) => void
-}
+    onBlur?: () => void
+} & Omit<ComponentPropsWithoutRef<'textarea'>, 'value' | 'onChange' | 'onBlur'>;
 
-export const TextArea = ({
-                             label,
-                             name,
-                             initialValue = '',
-                             maxLength,
-                             placeholder = 'text-area',
-                             disabled = false,
-                             rows = 4,
-                             className = '',
-                             width,
-                             onChange,
-                         }: TextAreaProps) => {
-    const [value, setValue] = useState(initialValue)
-    const [error, setError] = useState('')
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => {
+
+    const {label, name, maxLength, error, placeholder, disabled, rows, className, width, value, onChange, onBlur} = props
 
     const currentLength = value.length
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        const newValue = e.currentTarget.value
-        setValue(newValue)
-        onChange?.(newValue)
-        if (error) {
-            setError('')
-        }
+       onChange?.(e.currentTarget.value)
     }
 
     const handleBlur = () => {
-        const trimmedValue = value.trim()
-        if (trimmedValue === '') {
-            setError('Error text')
-        }
-        setValue(trimmedValue)
+        onBlur?.()
     }
     const textareaClassName = clsx(
         styles.textareaInput,
@@ -76,6 +48,7 @@ export const TextArea = ({
             rows={rows}
             maxLength={maxLength}
             className={textareaClassName}
+            ref={ref}
         />
 
                 <div className={styles.containerCounterError}>
@@ -89,4 +62,4 @@ export const TextArea = ({
             </div>
         </div>
     )
-}
+})
