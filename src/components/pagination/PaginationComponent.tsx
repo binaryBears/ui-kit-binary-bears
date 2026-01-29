@@ -18,7 +18,7 @@ type PaginationProps = {
     onItemsPerPageChange: (itemsPerPage: number) => void
 }
 
-export const PaginationComponent = ({
+export const Pagination = ({
                                         totalItems,
                                         itemsPerPage,
                                         currentPage,
@@ -37,7 +37,7 @@ export const PaginationComponent = ({
         })
     return (
         <div className={s.paginationContainer}>
-            <div className={clsx(s.pagination, isFocused ? 'focus' : '')}>
+            <div className={clsx(s.pagination, isFocused && s.focus)}>
                 <button
                     className={clsx(s.arrowButton ,currentPage === 1 ? s.disabled : '')}
                     onClick={() => handlePageChange(currentPage - 1)}
@@ -47,7 +47,7 @@ export const PaginationComponent = ({
                 </button>
 
                 {getPageNumbers().map((page, index) => (
-                    <React.Fragment key={index}>
+                    <React.Fragment key={`${page}-${index}`}>
                         {page === '...' ? (
                             <span className={s.paginationEllipsis}>
                      <MoreHorizontal className={s.paginationEllipsis}/>
