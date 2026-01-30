@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Tabs, { type TabItem } from './Tabs'
 
-const bothVariants: TabItem[] = [
-  { id: 'p', label: 'Tabs', content: null, variantStyle: 'primary' },
-  { id: 's', label: 'Tabs', content: null, variantStyle: 'secondary' },
+const sampleTabs: TabItem[] = [
+  { id: 'tab1', label: 'Tab 1', content: 'Content for Tab 1', variantStyle: 'primary' },
+  { id: 'tab2', label: 'Tab 2', content: 'Content for Tab 2', variantStyle: 'primary' },
+  { id: 'tab3', label: 'Tab 3', content: 'Content for Tab 3', variantStyle: 'secondary' },
 ]
 
-const disabledVariants: TabItem[] = [
-  { id: 'p', label: 'Tabs', content: null, variantStyle: 'primary', disabled: true },
-  { id: 's', label: 'Tabs', content: null, variantStyle: 'secondary', disabled: true },
+const disabledTabs: TabItem[] = [
+  { id: 'tab1', label: 'Tab 1', content: 'Content for Tab 1', variantStyle: 'primary', disabled: true },
+  { id: 'tab2', label: 'Tab 2', content: 'Content for Tab 2', variantStyle: 'primary' },
+  { id: 'tab3', label: 'Tab 3', content: 'Content for Tab 3', variantStyle: 'secondary', disabled: true },
 ]
 
 const meta = {
@@ -17,7 +19,6 @@ const meta = {
   argTypes: {
     tabs: { control: false },
     defaultActiveId: { control: false },
-    forcedState: { control: false },
   },
 } satisfies Meta<typeof Tabs>
 
@@ -28,33 +29,21 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    tabs: bothVariants,
+    tabs: sampleTabs,
   },
 }
 
 export const Active: Story = {
   args: {
-    tabs: bothVariants,
-    defaultActiveId: 'p',
+    tabs: sampleTabs,
+    defaultActiveId: 'tab2',
   },
 }
 
-export const Hover: Story = {
-  args: {
-    tabs: bothVariants,
-    forcedState: 'hover',
-  },
-}
 
-export const Focus: Story = {
-  args: {
-    tabs: bothVariants,
-    forcedState: 'focus',
-  },
-}
 
 export const Disabled: Story = {
   args: {
-    tabs: disabledVariants,
+    tabs: disabledTabs,
   },
 }

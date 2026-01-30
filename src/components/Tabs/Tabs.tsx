@@ -1,5 +1,5 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs'
-import { useState, type ReactNode } from 'react'
+import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import s from './Tabs.module.scss'
 
 export type TabItem = {
@@ -7,32 +7,25 @@ export type TabItem = {
   label: ReactNode
   content: ReactNode
   disabled?: boolean
-
-  variantStyle?: 'primary' | 'secondary' // для управления цветами
+  variantStyle?: 'primary' | 'secondary'
 }
-
-type ForcedState = 'hover' | 'focus' | null
 
 type TabsProps = {
   tabs: TabItem[]
   defaultActiveId?: string | null
-  forcedState?: ForcedState
-}
+} & ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
 
 export default function Tabs({
   tabs,
   defaultActiveId = null,
-  forcedState = null,
+  ...rest
 }: TabsProps) {
-  const initialValue =
-    defaultActiveId === null ? undefined : defaultActiveId
-
-  const [value, setValue] = useState<string | undefined>(initialValue)
-
-
-
   return (
-    <TabsPrimitive.Root value={value} onValueChange={setValue} className={s.tabs}>
+    <TabsPrimitive.Root 
+      defaultValue={defaultActiveId ?? undefined} 
+      className={s.tabs}
+      {...rest}
+    >
       <TabsPrimitive.List className={s.tabsHeader}>
         {tabs.map(tab => (
           <TabsPrimitive.Trigger
@@ -40,15 +33,21 @@ export default function Tabs({
             value={tab.id}
             disabled={tab.disabled}
             className={`${s.tabButton} ${s[tab.variantStyle ?? 'primary']}`}
-            data-hover={forcedState === 'hover' ? '' : undefined}
-            data-focus={forcedState === 'focus' ? '' : undefined}
           >
             <span className={s.label}>{tab.label}</span>
           </TabsPrimitive.Trigger>
         ))}
       </TabsPrimitive.List>
 
-
+      {tabs.map(tab => (
+        <TabsPrimitive.Content
+          key={tab.id}
+          value={tab.id}
+          className={s.content}
+        >
+          {tab.content}
+        </TabsPrimitive.Content>
+      ))}
     </TabsPrimitive.Root>
   )
 }

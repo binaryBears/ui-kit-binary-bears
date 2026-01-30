@@ -53,15 +53,15 @@
   }
 
   /* HOVER */
-  &[data-hover]:not([data-state='active'])::before {
+  &:not(:disabled):not([data-state='active']):hover::before {
     background: var(--bg-hover);
   }
 
-  /* FOCUS — рамка вокруг */
-  &[data-focus] {
+  /* FOCUS */
+  &:focus-visible {
     outline: 2px solid rgba(47, 104, 204, 1);
     outline-offset: 2px;
-    
+
     &::before {
       background: transparent;
     }
@@ -97,4 +97,14 @@
   &:disabled {
     color: rgba(76, 76, 76, 1);
   }
+}
+
+/* ===== CONTENT ===== */
+
+.content {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(57, 125, 246, 0.2);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
 }
