@@ -1,49 +1,46 @@
-'use client'
-
-import React, { type ReactNode } from 'react'
 import s from './Header.module.scss'
-import BellOutline from '../assets/icons/new-components/BellOutline'
+import { BellOutline } from '../../../assets/icons'
 import { LanguageSelector } from '../LanguageSelector/LanguageSelector'
-import { FlagRussiaIcon, FlagUnitedKingdomIcon } from '../assets/icons'
-import { Button } from '../Button'
+import { FlagRussiaIcon, FlagUnitedKingdomIcon } from '../../../assets/icons'
+import { Button } from '../button'
 
-const HeaderButton = ({ children, variant = 'primary' }: { 
-  children: ReactNode, 
-  variant?: 'primary' | 'textButton'
-}) => (
-  <Button variant={variant}>
-    {children}
-  </Button>
+type NotificationBellProps = {
+  count?: number
+  onClick?: () => void
+}
+
+export const NotificationBell = ({ count, onClick }: NotificationBellProps) => (
+  <button
+    type="button"
+    className={s.bell}
+    aria-label="Notifications"
+    onClick={onClick}
+  >
+    <BellOutline className={s.bellIcon} />
+
+    {typeof count === 'number' && (
+      <span className={s.badge} aria-live="polite">
+        {count}
+      </span>
+    )}
+  </button>
 )
 
 type HeaderProps = {
-  isLoginIn: boolean
+  isLoggedIn: boolean
+  notificationsCount?: number
+  language: string
+  onLanguageChange?: (value: string) => void
+  onNotificationClick?: () => void
 }
 
-export const Header = ({ isLoginIn }: HeaderProps) => {
-  
-  const NotificationBell = () => (
-    <div style={{ position: 'relative', cursor: 'pointer' }}>
-      <BellOutline style={{ width: '24px', height: '24px' }} />
-      <span style={{
-        position: 'absolute',
-        top: '-5px',
-        right: '-5px',
-        backgroundColor: 'red',
-        color: 'white',
-        borderRadius: '50%',
-        width: '16px',
-        height: '16px',
-        fontSize: '10px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        3
-      </span>
-    </div>
-  )
-
+export const Header = ({
+  isLoggedIn,
+  notificationsCount,
+  language,
+  onLanguageChange,
+  onNotificationClick,
+}: HeaderProps) => {
   const languageOptions = [
     { 
       value: 'ru', 
@@ -59,35 +56,31 @@ export const Header = ({ isLoginIn }: HeaderProps) => {
 
   return (
     <header className={s.container}>
-      <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Inctagram</div>
+      <div className={s.logo}>Inctagram</div>
       
       <div>
-        {isLoginIn ? (
-          <div className={s.authorized_notifications}>
-            <NotificationBell />
+        {isLoggedIn ? (
+          <div className={s.authorizedNotifications}>
+            <NotificationBell count={notificationsCount} onClick={onNotificationClick} />
             
             <LanguageSelector 
               options={languageOptions}
-              value={'en'}
-              onChange={(value) => console.log('Language changed to:', value)}
+              value={language}
+              onChange={onLanguageChange}
             />
-            
-
           </div>
         ) : (
-          <div className={s.unauthorized_notifications}>
+          <div className={s.unauthorizedNotifications}>
             <LanguageSelector 
               options={languageOptions}
-              value={'en'}
-              onChange={(value) => console.log('Language changed to:', value)}
+              value={language}
+              onChange={onLanguageChange}
             />
             
-            <div className={s.button}>
-              <HeaderButton variant="textButton">Log in</HeaderButton>
-              <HeaderButton variant="primary">Sign up</HeaderButton>
+            <div className={s.buttonContainer}>
+              <Button variant="textButton">Log in</Button>
+              <Button variant="primary">Sign up</Button>
             </div>
-            
-
           </div>
         )}
       </div>
