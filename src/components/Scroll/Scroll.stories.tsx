@@ -1,114 +1,56 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Scrollbar } from './Scroll'
+import { ScrollAreaBase } from './Scroll'
 
-const Wrapper = ({ children }: { children: React.ReactNode }) => (
-  <div
-    style={{
-      backgroundColor: 'black',
-      width: '100vw',
-      height: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px',
-    }}
-  >
-    {children}
-  </div>
-)
-
-const meta: Meta<typeof Scrollbar> = {
-  title: 'Components/Scrollbar',
-  component: Scrollbar,
-  decorators: [(Story) => <Wrapper><Story /></Wrapper>],
-  argTypes: {
-    orientation: {
-      control: { type: 'radio' },
-      options: ['horizontal', 'vertical'],
-    },
+const meta: Meta<typeof ScrollAreaBase> = {
+  title: 'Components/ScrollArea',
+  component: ScrollAreaBase,
+  parameters: {
+    layout: 'centered',
   },
 }
-
 export default meta
-type Story = StoryObj<typeof Scrollbar>
 
-// === ОСНОВНЫЕ СОСТОЯНИЯ ===
+type Story = StoryObj<typeof ScrollAreaBase>
 
-export const Default: Story = {
-  args: {
-    orientation: 'vertical',
-  },
-  render: (args) => (
-    <div style={{ width: 200, height: 200 }}>
-      <Scrollbar orientation={args.orientation}>
-        <div style={{ width: '100%' }}>
-          {[...Array(30)].map((_, i) => (
-            <p key={i} style={{ margin: 0, padding: '8px 0', color: 'white', fontSize: 14 }}>
-              Item {i + 1} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia.
-            </p>
+
+export const Vertical: Story = {
+  render: () => (
+    <div style={{ width: 120, height: 200, border: '1px solid #ccc' }}>
+      <ScrollAreaBase type="always">
+        <div style={{ height: 300, padding: '10px' }}>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} style={{ 
+              padding: '8px', 
+              marginBottom: '4px',
+              border: '1px solid #ddd'
+            }}>
+              Item {i + 1}
+            </div>
           ))}
         </div>
-      </Scrollbar>
+      </ScrollAreaBase>
     </div>
   ),
 }
 
+
 export const Horizontal: Story = {
-  args: {
-    orientation: 'horizontal',
-  },
-  render: (args) => (
-    <div style={{ width: 300, height: 100 }}>
-      <Scrollbar orientation={args.orientation}>
-        <div style={{ display: 'flex', height: '100%' }}>
-          {[...Array(50)].map((_, i) => (
-            <span 
-              key={i} 
-              style={{ 
-                marginRight: 20, 
-                color: 'white', 
-                fontSize: 14, 
-                whiteSpace: 'nowrap' 
-              }}
-            >
-              Item {i + 1} - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  render: () => (
+    <div style={{ width: 200, height: 60, border: '1px solid #ccc' }}>
+      <ScrollAreaBase type="always">
+        <div style={{ width: 400, whiteSpace: 'nowrap', padding: '10px' }}>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <span key={i} style={{ 
+              display: 'inline-block',
+              marginRight: '12px',
+              padding: '6px 10px',
+              border: '1px solid #ddd'
+            }}>
+              Item {i + 1}
             </span>
           ))}
         </div>
-      </Scrollbar>
+      </ScrollAreaBase>
     </div>
   ),
-}
-
-export const Playground: Story = {
-  args: {
-    orientation: 'vertical',
-  },
-  render: (args) => {
-    const verticalContent = (
-      <div style={{ width: '100%' }}>
-        {[...Array(15)].map((_, i) => (
-          <p key={i} style={{ margin: 0, padding: '8px 0', color: 'white', fontSize: 14 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
-          </p>
-        ))}
-      </div>
-    )
-
-    const horizontalContent = (
-      <div style={{ display: 'flex', height: '100%' }}>
-        {[...Array(25)].map((_, i) => (
-          <span key={i} style={{ marginRight: 20, color: 'white', fontSize: 14, whiteSpace: 'nowrap' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.
-          </span>
-        ))}
-      </div>
-    )
-
-    return (
-      <Scrollbar orientation={args.orientation}>
-        {args.orientation === 'vertical' ? verticalContent : horizontalContent}
-      </Scrollbar>
-    )
-  },
 }

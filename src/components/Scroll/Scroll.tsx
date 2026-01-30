@@ -1,56 +1,39 @@
-
-'use client'
-
 import * as ScrollArea from '@radix-ui/react-scroll-area'
+import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import clsx from 'clsx'
-import s from './Scrollbar.module.scss'
+import s from './scroll.module.scss'
 
-export type ScrollbarOrientation = 'vertical' | 'horizontal' | 'both'
-
-type ScrollbarProps = Readonly<{
-  orientation?: ScrollbarOrientation
-  className?: string
-  children: React.ReactNode
-}>
-
-export const Scrollbar = ({
-  orientation = 'vertical',
-  className,
-  children,
-}: ScrollbarProps) => {
-  const showVertical = orientation === 'vertical' || orientation === 'both'
-  const showHorizontal = orientation === 'horizontal' || orientation === 'both'
-  
-  return (
-    <ScrollArea.Root 
-      className={clsx(s.root, className)} 
-      type="always"
-    >
-      <ScrollArea.Viewport className={s.viewport} asChild>
-        <div>{children}</div>
-      </ScrollArea.Viewport>
-
-      {showVertical && (
-        <ScrollArea.Scrollbar 
-          orientation="vertical" 
-          className={clsx(s.scrollbar, s['scrollbar--vertical'])}
-        >
-          <ScrollArea.Thumb className={s.thumb} />
-        </ScrollArea.Scrollbar>
-      )}
-      
-      {showHorizontal && (
-        <ScrollArea.Scrollbar 
-          orientation="horizontal" 
-          className={clsx(s.scrollbar, s['scrollbar--horizontal'])}
-        >
-          <ScrollArea.Thumb className={s.thumb} />
-        </ScrollArea.Scrollbar>
-      )}
-      
-      {orientation === 'both' && (
-        <ScrollArea.Corner className={s.corner} />
-      )}
-    </ScrollArea.Root>
-  )
+type ScrollAreaBaseProps = ComponentPropsWithoutRef<typeof ScrollArea.Root> & {
+  children: ReactNode
 }
+
+export const ScrollAreaBase = forwardRef<HTMLDivElement, ScrollAreaBaseProps>(
+  ({ children, className, type = 'hover', ...props }, ref) => {
+    return (
+      <ScrollArea.Root
+        ref={ref}
+        type={type}
+        className={clsx(s.root, className)}
+        {...props}
+      >
+        <ScrollArea.Viewport className={s.viewport}>
+          {children}
+        </ScrollArea.Viewport>
+
+        <ScrollArea.Scrollbar orientation="vertical" className={s.scrollbar}>
+          <ScrollArea.Thumb className={s.thumb} />
+        </ScrollArea.Scrollbar>
+
+        <ScrollArea.Scrollbar orientation="horizontal" className={s.scrollbar}>
+          <ScrollArea.Thumb className={s.thumb} />
+        </ScrollArea.Scrollbar>
+
+        <ScrollArea.Corner className={s.corner} />
+      </ScrollArea.Root>
+    )
+  }
+)
+
+// Backward compatibility export
+export const Scrollbar = ScrollAreaBase
+export type { ScrollAreaBaseProps as ScrollbarProps }

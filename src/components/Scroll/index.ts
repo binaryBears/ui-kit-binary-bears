@@ -1,2 +1,1 @@
-export { Scrollbar } from './Scroll'
-export type { ScrollbarProps } from './Scroll'
+export { ScrollAreaBase, Scrollbar, type ScrollbarProps } from './Scroll'
