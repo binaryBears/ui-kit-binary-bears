@@ -3,7 +3,7 @@ import clsx from 'clsx'
 
 import s from './select.module.scss'
 
-import { IconArrowIosBack } from '../../accets/icons/components'
+import { IconArrowIosBack } from '../../assets/icons/components'
 import { type ComponentPropsWithoutRef, type ComponentRef, forwardRef, type ReactNode } from 'react'
 
 export type Options = {

@@ -68,7 +68,14 @@ importers:
         version: 3.0.0(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(webpack@5.104.1(esbuild@0.27.2))
       '@storybook/addon-vitest':
         specifier: ^10.1.10
+<<<<<<< HEAD
+        version: 10.1.10(@vitest/browser-playwright@4.0.16)(@vitest/browser@4.0.16(vite@7.3.0(@types/node@24.10.4)(sass@1.97.1))(vitest@4.0.16))(@vitest/runner@4.0.16)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vitest@4.0.16)
+      '@storybook/react':
+        specifier: ^10.1.10
+        version: 10.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)
+=======
         version: 10.1.10(@vitest/browser-playwright@4.0.16)(@vitest/browser@4.0.16(vite@7.3.0(@types/node@24.10.4)(sass@1.97.1)(terser@5.46.0))(vitest@4.0.16))(@vitest/runner@4.0.16)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vitest@4.0.16)
+>>>>>>> master
       '@storybook/react-vite':
         specifier: ^10.1.10
         version: 10.1.10(esbuild@0.27.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.54.0)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(sass@1.97.1)(terser@5.46.0))(webpack@5.104.1(esbuild@0.27.2))
@@ -94,7 +101,7 @@ importers:
         specifier: ^4.0.16
         version: 4.0.16(@vitest/browser@4.0.16(vite@7.3.0(@types/node@24.10.4)(sass@1.97.1)(terser@5.46.0))(vitest@4.0.16))(vitest@4.0.16)
       eslint:
-        specifier: ^9.39.1
+        specifier: ^9.39.2
         version: 9.39.2
       eslint-plugin-react-hooks:
         specifier: ^7.0.1
@@ -1829,10 +1836,13 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
+<<<<<<< HEAD
+=======
   chrome-trace-event@1.0.4:
     resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
     engines: {node: '>=6.0'}
 
+>>>>>>> master
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
@@ -5483,8 +5493,11 @@ snapshots:
 
   chromatic@13.3.4: {}
 
+<<<<<<< HEAD
+=======
   chrome-trace-event@1.0.4: {}
 
+>>>>>>> master
   clsx@2.1.1: {}
 
   color-convert@2.0.1:
