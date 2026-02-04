@@ -36,13 +36,17 @@ export const Modal = ({
                           hideDivider = false,
                           ...rest
                       }: ModalProps) => (
-    <Dialog.Root open={open} onOpenChange={onClose} {...rest}>
+    <Dialog.Root open={open} onOpenChange={(isOpen) => {
+        if (!isOpen) {
+            onClose()
+        }
+    }} {...rest}>
         <Dialog.Portal>
             <Dialog.Overlay className={s.Overlay} />
-            <Dialog.Content className={clsx(s.Content, s[size])} aria-describedby={undefined}>
+            <Dialog.Content className={clsx(s.Content, s[size], className)} aria-describedby={undefined}>
                 <Dialog.Title className={s.Title}>{modalTitle}</Dialog.Title>
                 {!hideDivider && <hr className={s.divider} />}
-                <div className={className}>{children}</div>
+                {children}
                 {!hideCloseButton && (
                     <Dialog.Close asChild>
                         <button className={s.IconButton}>

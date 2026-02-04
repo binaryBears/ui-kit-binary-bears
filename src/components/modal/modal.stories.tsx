@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Modal, type ModalProps} from "./Modal.tsx";
+import {Modal, type ModalProps} from "./modal.tsx";
 import type {Meta, StoryObj} from "@storybook/react-vite";
 
 const meta = {
