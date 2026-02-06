@@ -1,6 +1,6 @@
 import s from './input.module.scss'
 import { type ComponentPropsWithoutRef, forwardRef, type MouseEvent, useState } from 'react'
-import { IconEye, IconEyeOff, IconSearch } from './../../accets/icons/components'
+import { IconEye, IconEyeOff, IconSearch } from '../../assets/icons/components'
 import clsx from 'clsx'
 
 type Props = {
