@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import {Pagination} from "./Pagination.tsx";
 import type {Meta} from "@storybook/react-vite";
+import {Pagination} from "./Pagination.tsx";
 
 export default {
     title: 'Components/Pagination',

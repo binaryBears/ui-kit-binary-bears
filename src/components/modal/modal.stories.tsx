@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {Modal, type ModalProps} from "./modal.tsx";
 import type {Meta, StoryObj} from "@storybook/react-vite";
+import {Button} from "../button";
 
 const meta = {
     title: 'Components/Modal',
@@ -22,9 +23,9 @@ function Render(args: ModalProps) {
     }
     return (
         <>
-            <button onClick={openModal}>
+            <Button onClick={openModal}>
                 Open Modal
-            </button>
+            </Button>
             <Modal {...args} open={showModal} onClose={closeModal} modalTitle={args.modalTitle}></Modal>
         </>
     )
@@ -39,13 +40,13 @@ export const BaseModal: Story = {
                 <p style={{ textAlign: 'left' }}>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, error
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'end', marginTop: '30px' }}>
-                    <button style={{ padding: '6px 34px' }}>
+                <div style={{ display: 'flex', justifyContent: 'end', marginTop: '30px', gap: '20px' }}>
+                    <Button style={{ padding: '6px 34px' }}>
                         Yes
-                    </button>
-                    <button style={{ padding: '6px 37px' }}>
+                    </Button>
+                    <Button style={{ padding: '6px 37px' }}>
                         No
-                    </button>
+                    </Button>
                 </div>
             </div>
         ),
