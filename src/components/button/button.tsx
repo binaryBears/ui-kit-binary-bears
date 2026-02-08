@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithoutRef, type ReactNode } from 'react'
+import { type ComponentPropsWithoutRef, type ReactNode } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
 

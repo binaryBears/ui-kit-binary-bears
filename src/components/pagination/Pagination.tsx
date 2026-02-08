@@ -4,9 +4,9 @@ import type { Options } from '../select'
 import { clsx } from 'clsx'
 import {usePagination} from "./usePagination.tsx";
 import {Select} from "../select";
-import ArrowIosBack from "../../accets/icons/components/ArrowIosBack.tsx";
-import MoreHorizontal from "../../accets/icons/components/MoreHorizontal.tsx";
-import ArrowIosForward from "../../accets/icons/components/ArrowIosForward.tsx";
+import MoreHorizontal from "../../assets/icons/components/MoreHorizontal.tsx";
+import ArrowIosBack from "../../assets/icons/components/ArrowIosBack.tsx";
+import ArrowIosForward from "../../assets/icons/components/ArrowIosForward.tsx";
 
 type PaginationProps = {
     totalItems: number
